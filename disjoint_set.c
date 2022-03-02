@@ -17,6 +17,7 @@ void displaySet()
 { 
     printf("\nParent Array\n");
     for(int i= 0;i< dis.n;i++)
+    
     { 
         printf("%d",dis.parent[i]); 
     }
@@ -89,7 +90,6 @@ int main()
         }
         printf("\nDo you wish to continue?(1/0)\n");
         scanf("%d",&wish); 
-    }
-    while(wish==1);
+    }while(wish==1);
     return 0;
 }

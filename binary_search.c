@@ -9,14 +9,14 @@ struct btnode*r;
 void delete1();
 void insert();
 void delete();
-void inorder(struct btnode*t);
+void inorder(struct btnode *t);
 void create();
-void search(struct btnode*t);
-void preorder(struct btnode*t);
-void postorder(struct btnode*t);
-void search1(struct btnode*t,int data);
-int smallest(struct btnode*t);
-int largest(struct btnode*t);
+void search(struct btnode *t);
+void preorder(struct btnode *t);
+void postorder(struct btnode *t);
+void search1(struct btnode *t,int data);
+int smallest(struct btnode *t);
+int largest(struct btnode *t);
 int flag=1;
 void main()
 { 
@@ -29,7 +29,7 @@ printf("\nEnter your choice:");
 scanf("%d",&ch);
 switch(ch)
 { 
-case1: insert(); 
+case 1: insert(); 
         break;
 case 2: delete();
         break; 
@@ -61,7 +61,7 @@ temp=(struct btnode*)malloc(1*sizeof(struct btnode));
 temp->value=data; 
 temp->l=temp->r=NULL;
 }
-void search(struct btnode*t)
+void search(struct btnode *t)
 {
 if(((temp->value)>(t->value))&&(t->r!=NULL))
 search(t->r);
@@ -72,7 +72,7 @@ search(t->l);
 else if((temp->value<t->value)&&(t->l==NULL))
 t->l=temp;
 }
-void inorder(struct btnode*t)
+void inorder(struct btnode *t)
 { 
 if(root==NULL)
 {
@@ -95,14 +95,15 @@ return;
 }
 printf("Enter the data to be deleted:"); 
 scanf("%d",&data);
-t1=root; t2=root;
+t1=root; 
+t2=root;
 search1(root,data);
 }
-void preorder(struct btnode*t)
+void preorder(struct btnode *t)
 { 
 if(root==NULL)
 {
-printf("No elements in a tree to display");
+printf("No elements in a tree to display: ");
 return;
 }
 printf("%d->",t->value);  
@@ -111,10 +112,10 @@ preorder(t->l);
 if(t->r!=NULL)
 preorder(t->r);
 }
-void postorder(struct btnode*t)
+void postorder(struct btnode *t)
 { if(root==NULL)
 {
-printf("No elements in a tree to display");
+printf("No elements in a tree to display:");
 return;
 }
 if(t->l!=NULL)
@@ -123,7 +124,7 @@ if(t->r!=NULL)
 postorder(t->r);
 printf("%d->",t->value);
 }
-void search1(struct btnode*t,int data)
+void search1(struct btnode *t,int data)
 {
 if((data>t->value))
 { t1=t;
@@ -139,7 +140,7 @@ else if((data==t->value))
 delete1(t);
 }
 }
-void delete1(struct btnode*t)
+void delete1(struct btnode *t)
 { 
 int k;
 if((t->l==NULL)&&(t->r==NULL))
@@ -206,7 +207,7 @@ search1(root,k);
 t->value=k;
 }
 }
-int smallest(struct btnode*t)
+int smallest(struct btnode *t)
 { 
 t2=t; 
 if(t->l!=NULL)
@@ -217,7 +218,7 @@ return(smallest(t->l));
 else
   return(t->value);
 }
-int largest(struct btnode*t)
+int largest(struct btnode *t)
 { 
 if(t->r!=NULL)
 { 
